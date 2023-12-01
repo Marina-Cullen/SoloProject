@@ -7,6 +7,6 @@
 <title>Registration</title>
 </head>
 <body>
-
+<h1>Register Here</h1>
 </body>
 </html>

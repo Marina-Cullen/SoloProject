@@ -7,6 +7,6 @@
 <title>Shared Stories</title>
 </head>
 <body>
-
+<h1>Welcome to Shared Stories</h1>
 </body>
 </html>
