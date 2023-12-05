@@ -44,7 +44,7 @@ public class User {
 	//EMAIL
 	//PASSWORD
 	//DATE OF BIRTH
-	//
+//JOINING COLUMNS
 	
 	
 //end
