@@ -39,6 +39,7 @@ public class User {
 //VARIOUS COLUMNS TO ADD TO TABLE
 	
 	//USERNAME
+	@NotEmpty(message = "Please enter a valid Username")
 	//FIRST NAME
 	//LAST NAME
 	//EMAIL
