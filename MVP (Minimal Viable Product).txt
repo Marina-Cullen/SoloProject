@@ -1,0 +1,13 @@
+MVP (Minimal Viable Product)
+
+With this product
+
+-Users can register and login with validations
+-Data is validated upon create and edit
+-Protected routes (Must be logged in to view)
+-All of CRUD will be implimented 
+-CSS and possibly other static content
+-A CSS framework may be applied
+-have One-to-many relationships
+
+
