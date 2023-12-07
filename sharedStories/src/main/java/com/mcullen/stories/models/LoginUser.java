@@ -13,7 +13,7 @@ public class LoginUser {
 	
 	//PASSWORD
 	@NotEmpty(message = "Password is required")
-	@Size(min = 8, max = 128, message = "Password must be between 8-128 characters")
+	@Size(min = 8, message = "Password must be at least 8 characters")
 	private String password;
 	
 	//CONSTRUCTOR
@@ -21,7 +21,7 @@ public class LoginUser {
 
 	public LoginUser(
 			@NotEmpty(message = "Email is required") @Email(message = "Please enter a valid email") String email,
-			@NotEmpty(message = "Password is required") @Size(min = 8, max = 128, message = "Password must be between 8-128 characters") String password) {
+			@NotEmpty(message = "Password is required") @Size(min = 8, message = "Password must be at least 8 characters") String password) {
 		super();
 		this.email = email;
 		this.password = password;
