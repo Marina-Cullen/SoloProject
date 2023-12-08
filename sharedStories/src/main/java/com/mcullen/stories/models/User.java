@@ -1,20 +1,25 @@
 package com.mcullen.stories.models;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -36,7 +41,6 @@ public class User {
 		this.createdAt = new Date();
 		this.updatedAt = new Date();// This creates an updateAt upon creation
 	}
-
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
@@ -44,7 +48,7 @@ public class User {
 
 //VARIOUS COLUMNS TO ADD TO TABLE
 
-	// USERNAME
+	// USERNAME --PUBLIC
 	@NotEmpty(message = "Please enter a valid Username")
 	@Size(min = 3, max = 30, message = "Username must be between 3 - 30 characters")
 	private String userName;
@@ -76,10 +80,21 @@ public class User {
 	private String confirm;
 
 	// DATE OF BIRTH
-	@NotEmpty(message = "Date of Birth is Required")
+	@NotNull(message = "Date of Birth is Required")
 	@DateTimeFormat (pattern = "MM/dd/yyyy")
 	private Date dob;
-//JOINING COLUMNS
-
+	
+	//QUOTE
+	@NotBlank (message = "Please leave a quote")
+	@Column (columnDefinition = "TEXT")
+	private String quote;
+	
+	
+//JOINING COLUMNS *****************************************
+	@OneToMany(mappedBy = "postingUser", fetch=FetchType.LAZY)
+	private List<Prompts> prompts;
+	
+	@OneToMany(mappedBy = "storyByUser", fetch=FetchType.LAZY)
+	private List<Story> stories;
 //end
 }
