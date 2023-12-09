@@ -64,7 +64,7 @@
 		</form:form>
 </div1>
 
-
+<a href="/">Login</a>
 
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/app.js"></script>

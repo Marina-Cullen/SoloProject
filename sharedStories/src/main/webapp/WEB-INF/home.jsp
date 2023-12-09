@@ -21,9 +21,14 @@
 </head>
 <body>
 
+	<h1>
+		Welcome,
+		<c:out value="${loggedUser.userName}" />
+	</h1>
 
-
-
+	<form action="/logout" method="POST">
+		<input type="submit" class="btn btn-link" value="Log Out">
+	</form>
 
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/app.js"></script>
