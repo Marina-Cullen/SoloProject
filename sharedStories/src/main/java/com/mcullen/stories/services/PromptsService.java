@@ -33,8 +33,8 @@ public class PromptsService {
 		return promptRepo.findAll();
 	}
 	// UPDATE
-	public Prompts updatePrompt(Prompts editedPrompt) {
-		return promptRepo.save(editedPrompt);
+	public Prompts updatePrompt(Prompts updatedPrompt) {
+		return promptRepo.save(updatedPrompt);
 	}
 	// DELETE
 	public void deletePrompt (Long id) {
