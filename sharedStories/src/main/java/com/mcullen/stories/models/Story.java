@@ -51,11 +51,11 @@ public class Story {
 //JOINING COLUMN*****************************************
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn (name="prompts-id")
+	@JoinColumn (name="prompts_id")
 	private Prompts storyPrompt;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn (name="user-id")
+	@JoinColumn (name="user_id")
 	private User storyByUser;
 	
 //CONSTRUCTORS

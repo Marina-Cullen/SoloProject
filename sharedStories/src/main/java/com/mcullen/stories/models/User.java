@@ -70,18 +70,18 @@ public class User {
 
 	// PASSWORD
 	@NotEmpty(message = "Password is required")
-	@Size(min = 8, max = 50, message = "Password must be between 8 - 50 characters long")
+	@Size(min = 8, message = "Password must be at least 8 characters long")
 	private String password;
 
 	// CONFIRM PASSWORD
 	@Transient // This annotation means that this column will not be saved in the DB
 	@NotEmpty(message = "Confirm Password is required!")
-	@Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 128 characters")
+	@Size(min = 8, message = "Confirm Password must be at least 8 characters long")
 	private String confirm;
 
 	// DATE OF BIRTH
 	@NotNull(message = "Date of Birth is Required")
-	@DateTimeFormat (pattern = "MM/dd/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 	
 	//QUOTE
@@ -106,7 +106,7 @@ public class User {
 			@NotEmpty(message = "Kindly enter your last name") @Size(min = 2, max = 40, message = "Last name requires 2-40") String lastName,
 			@NotEmpty(message = "Email is required") @Email(message = "Please enter a valid email") String email,
 			@NotEmpty(message = "Password is required") @Size(min = 8, max = 50, message = "Password must be between 8 - 50 characters long") String password,
-			@NotEmpty(message = "Confirm Password is required!") @Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 128 characters") String confirm,
+			@NotEmpty(message = "Confirm Password is required!") @Size(min = 8, max = 50, message = "Confirm Password must be between 8 and 50 characters") String confirm,
 			@NotNull(message = "Date of Birth is Required") Date dob,
 			@NotBlank(message = "Please leave a quote") String quote, List<Prompts> prompts, List<Story> stories) {
 		super();
