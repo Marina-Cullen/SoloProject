@@ -96,5 +96,113 @@ public class User {
 	
 	@OneToMany(mappedBy = "storyByUser", fetch=FetchType.LAZY)
 	private List<Story> stories;
+	
+//CONSTRUCTOR**********************************************
+	public User() {
+	}
+	public User(Long id,
+			@NotEmpty(message = "Please enter a valid Username") @Size(min = 3, max = 30, message = "Username must be between 3 - 30 characters") String userName,
+			@NotEmpty(message = "Kindly enter your first name") @Size(min = 2, max = 40, message = "First name requires 2-40") String firstName,
+			@NotEmpty(message = "Kindly enter your last name") @Size(min = 2, max = 40, message = "Last name requires 2-40") String lastName,
+			@NotEmpty(message = "Email is required") @Email(message = "Please enter a valid email") String email,
+			@NotEmpty(message = "Password is required") @Size(min = 8, max = 50, message = "Password must be between 8 - 50 characters long") String password,
+			@NotEmpty(message = "Confirm Password is required!") @Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 128 characters") String confirm,
+			@NotNull(message = "Date of Birth is Required") Date dob,
+			@NotBlank(message = "Please leave a quote") String quote, List<Prompts> prompts, List<Story> stories) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.confirm = confirm;
+		this.dob = dob;
+		this.quote = quote;
+		this.prompts = prompts;
+		this.stories = stories;
+	}
+	
+//GETTERS AND SETTERS*******************************************
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getConfirm() {
+		return confirm;
+	}
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
+	public Date getDob() {
+		return dob;
+	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	public String getQuote() {
+		return quote;
+	}
+	public void setQuote(String quote) {
+		this.quote = quote;
+	}
+	public List<Prompts> getPrompts() {
+		return prompts;
+	}
+	public void setPrompts(List<Prompts> prompts) {
+		this.prompts = prompts;
+	}
+	public List<Story> getStories() {
+		return stories;
+	}
+	public void setStories(List<Story> stories) {
+		this.stories = stories;
+	}
+	
+	
 //end
 }
