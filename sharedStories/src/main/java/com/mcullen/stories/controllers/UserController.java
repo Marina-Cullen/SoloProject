@@ -56,7 +56,7 @@ public class UserController {
 		User loggedUserOrNull = userServ.validateLogin(newLogin, result);
 		if (loggedUserOrNull == null) { // Logging in is unsuccessful
 			viewModel.addAttribute("newUser", new User());
-			return "loginReg.jsp";
+			return "landing.jsp";
 		}
 		// ******************SAVE the ID of the new user in SESSION*********************
 		session.setAttribute("userId", loggedUserOrNull.getId());

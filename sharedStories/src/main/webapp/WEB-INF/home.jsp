@@ -22,10 +22,16 @@
 <body>
 
 	<h1>
-		Welcome,
 		<c:out value="${loggedUser.userName}" />
 	</h1>
-
+<!-- PROMPT FORM -->
+	<form:form action=
+<!-- LINKS -->
+	
+	<a href="/prompts">-Writing Prompts-</a>
+	<br/>
+	<a href="/create/prompt">-Add a Writing Prompt-</a>
+	<br/>
 	<form action="/logout" method="POST">
 		<input type="submit" class="btn btn-link" value="Log Out">
 	</form>

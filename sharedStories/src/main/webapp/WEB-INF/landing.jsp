@@ -21,10 +21,9 @@
 </head>
 <body>
 
-<a href="/register">Register Here</a>
-
-	<form:form class="flex-child" action="/loggingIn" method="POST"
-		modelAttribute="newLogin">
+<!--BEGINING OF LOGIN FORM  -->
+	<div class="bowser"> <form:form  action="/loggingIn"
+		method="POST" modelAttribute="newLogin">
 
 		<h2>Login Here</h2>
 
@@ -40,8 +39,11 @@
 		<input type="submit" class="button4" value="Login" />
 
 
-	</form:form>
-
+	</form:form> </div>
+<!--LINK TO REGISTRATION  -->
+	<p> If you are not a member, please <a href="/register">register here</a>.</p>
+	
+<!--JS Tags  -->	
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/app.js"></script>
 	<!-- change to match your file/naming structure -->

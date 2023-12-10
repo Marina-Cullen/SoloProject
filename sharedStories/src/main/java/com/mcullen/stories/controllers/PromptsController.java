@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -105,7 +106,7 @@ public class PromptsController {
 
 //UPDATE PROMPT POST
 	@PutMapping("/prompt/{id}/update")
-	public String updatePromptPost (@PathVariable("id")Long Id, @Valid @ModelAttribute("updatePrompt") Promtps updatedPrompt,
+	public String updatePromptPost (@PathVariable("id")Long Id, @Valid @ModelAttribute("updatePrompt") Prompts updatedPrompt,
 			BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			//Pass in attributes from the model OTHER than the  actual object we're editing, such as the CATEGORIES I offered

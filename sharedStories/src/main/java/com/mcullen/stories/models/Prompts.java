@@ -84,7 +84,6 @@ public class Prompts {
 		this.stories = stories;
 	}
 
-//GETTERS AND SETTERS************************************************
 	public Long getId() {
 		return id;
 	}
@@ -148,6 +147,9 @@ public class Prompts {
 	public void setStories(List<Story> stories) {
 		this.stories = stories;
 	}
+
+//GETTERS AND SETTERS************************************************
+
 	
 	
 //end	

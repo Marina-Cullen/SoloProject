@@ -20,8 +20,8 @@
 
 </head>
 <body>
-<h1>Let's get you registered so you can settle in</h1>
-<div1 >
+<h1>Let's get you registered and settled in.</h1>
+<div class="bowser" >
 		<form:form class="text-align:center" action="/register" method="POST"
 			modelAttribute="newUser">
 
@@ -62,7 +62,7 @@
 
 
 		</form:form>
-</div1>
+</div>
 
 <a href="/">Login</a>
 

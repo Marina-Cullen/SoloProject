@@ -22,7 +22,7 @@ public class PromptsService {
 		return promptRepo.save(newPrompt);
 	}
 	//READ ONE
-	public Prompts readOnePrompt(Prompts id) {
+	public Prompts readOnePrompt(Long id) {
 		Optional<Prompts> promptOrNull = promptRepo.findById(id);//attempts to find the prompt by ID
 		// Ternary operator (one-line if statement - "condition ? valueIfTrue :
 		// valueIfFalse")
@@ -38,11 +38,11 @@ public class PromptsService {
 	}
 	// DELETE
 	public void deletePrompt (Long id) {
-		Prompts thisPrompts = this.readOnePrompt(id);//Grabs the Prompt first
+		Prompts thisPrompt = this.readOnePrompt(id);//Grabs the Prompt first
 		//Below will delete all stories linked to the prompt
-		int numberOfStories = thisPrompts.getStories().size();
+		int numberOfStories = thisPrompt.getStories().size();
 		for (int i = 0; i < numberOfStories; i++) {
-			Story thisStory = thisPrompts.getStories().remove(i); //Removes story from the list
+			Story thisStory = thisPrompt.getStories().remove(i); //Removes story from the list
 			storyRepo.delete(thisStory); //Removes the story from the DB via the story repo
 		}
 		promptRepo.deleteById(id); //All is deleted now

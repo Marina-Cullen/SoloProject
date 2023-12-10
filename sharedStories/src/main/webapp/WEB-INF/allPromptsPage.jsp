@@ -25,7 +25,7 @@
 		<c:out value="${loggedUser.userName}" />
 		, Check out all these story prompts
 	</h1>
-
+	<a href="/home">Home</a>
 	<form action="/logout" method="POST">
 		<input type="submit" class="btn btn-link" value="Log Out">
 	</form>
