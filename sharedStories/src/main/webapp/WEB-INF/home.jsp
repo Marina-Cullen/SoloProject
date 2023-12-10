@@ -24,8 +24,7 @@
 	<h1>
 		<c:out value="${loggedUser.userName}" />
 	</h1>
-<!-- PROMPT FORM -->
-	<form:form action=
+	
 <!-- LINKS -->
 	
 	<a href="/prompts">-Writing Prompts-</a>

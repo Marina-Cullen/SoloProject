@@ -22,24 +22,28 @@
 <body>
 
 <!--BEGINING OF LOGIN FORM  -->
-	<div class="bowser"> <form:form  action="/loggingIn"
+	<div class="bowser"> 
+	<form:form  action="/loggingIn"
 		method="POST" modelAttribute="newLogin">
 
 		<h2>Login Here</h2>
-
+		<div>
 		<form:label path="email">Email:</form:label>
 		<form:errors path="email" />
 		<form:input type="email" path="email" />
-
+		</div>
+		<div>
 		<form:label path="password">Password:</form:label>
 		<form:errors path="password" />
 		<form:password path="password" />
+		</div>
 		<!-- 			//If using form:input, you must include "type="password"  -->
 
 		<input type="submit" class="button4" value="Login" />
 
 
-	</form:form> </div>
+	</form:form> 
+	</div>
 <!--LINK TO REGISTRATION  -->
 	<p> If you are not a member, please <a href="/register">register here</a>.</p>
 	
