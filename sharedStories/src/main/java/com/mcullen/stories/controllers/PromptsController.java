@@ -104,12 +104,21 @@ public class PromptsController {
 	}
 
 //UPDATE PROMPT POST
-	@PutMapping("/prompt/{id}/update") //REMEMBER to annotate PutMapping, not GET or POST
-	public String updatePromptPost (@PathVariable("id") Long Id, @Valid @ModelAttribute("updatePrompts") Prompts updatedPrompt,
+	@PutMapping("/prompt/{id}/update")
+	public String updatePromptPost (@PathVariable("id")Long Id, @Valid @ModelAttribute("updatePrompt") Promtps updatedPrompt,
 			BindingResult result, Model model) {
 		if(result.hasErrors()) {
+			//Pass in attributes from the model OTHER than the  actual object we're editing, such as the CATEGORIES I offered
 			return "updatePromptForm.jsp";
 		}
+		promptServ.updatePrompt(updatedPrompt); //Edit prompt in DB via Service and Repository
+		return "redirect:/prompt/"+updatedPrompt.getId(); //back to the Prompts page
 	}
 //DELETE
-
+	@DeleteMapping("/prompt/{id}/delete")
+	public String promptToDelete(@PathVariable("id") Long id) {
+		promptServ.deletePrompt(id);
+		return "redirect:/home";
+	}
+//END
+}
