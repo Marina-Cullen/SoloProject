@@ -20,16 +20,21 @@
 
 </head>
 <body>
+	<div class="bowser">
+		<h1>
+			<c:out value="${loggedUser.userName}" />
+			, Check out all these story prompts
+		</h1>
 
-	<h1>
-		<c:out value="${loggedUser.userName}" />
-		, Check out all these story prompts
-	</h1>
-	<a href="/home">Home</a>
-	<form action="/logout" method="POST">
-		<input type="submit" class="btn btn-link" value="Log Out">
-	</form>
 
+		<!-- LINKS -->
+		<a href="/home">Home</a> <br /> <a href="/create/prompt">Add A
+			Prompt</a>
+
+		<form action="/logout" method="POST">
+			<input type="submit" class="btn btn-link" value="Log Out">
+		</form>
+	</div>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/app.js"></script>
 	<!-- change to match your file/naming structure -->

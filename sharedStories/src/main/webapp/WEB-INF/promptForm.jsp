@@ -25,7 +25,7 @@
 			We're glad to have you here,
 			<c:out value="${loggedUser.userName}" />
 		</h2>
-		<h4><em>Add a prompt to inspire writing</em></h4>
+		<h4 style="color:orange"><em>Add a prompt to inspire writing</em></h4>
 		
 <!-- ADD PROMPT FORM -->	
 		<form:form action="/create/prompt" method="POST" modelAttribute="newPrompt">
@@ -47,12 +47,17 @@
 			</div>
 	<!-- HIDDEN INPUT TO LOG WHO SUBMITTED THIS PROMPT... HELPFUL TO RUN OTHER FEATURES -->
 		<form:hidden path="postingUser" value="${loggedUser.id}" />
-			<input type="submit"  class="btn btn-link" value="Add Prompt" />
+			<input type="submit"  value="Add Prompt" />
 	
 		
 		</form:form>
+		<br/>
+		<br/>
+		<br/>
 		<!-- LINKS -->
 		<a href="/home">Home</a>
+		<br/>
+		<a href="/prompts">All Prompts</a>
 		<form action="/logout" method="POST">
 			<input type="submit" class="btn btn-link" value="Log Out">
 		</form>
