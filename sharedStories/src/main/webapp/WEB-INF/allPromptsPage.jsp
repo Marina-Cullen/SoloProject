@@ -29,14 +29,14 @@
 		<c:forEach var="thisPrompts" items="${allPrompts }">
 
 			<p>
-				<a style="color:orange" href="/prompt/${thisPrompts.id }"><c:out 
+				<a style="color: orange" href="/prompt/${thisPrompts.id }"><c:out
 						value="${thisPrompts.title }"></c:out></a>
 			</p>
 
-			
+
 		</c:forEach>
 
-		<br /> 
+		<br />
 		<!-- LINKS -->
 		<a href="/home">Home</a> <br /> <a href="/create/prompt">Add A
 			Prompt</a>

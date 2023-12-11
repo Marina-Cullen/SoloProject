@@ -112,7 +112,7 @@ public class PromptsController {
 		Prompts thisPrompts = promptServ.readOnePrompt(id);
 		model.addAttribute("editedPrompts", thisPrompts);
 
-		return "updatePromptForm.jsp";
+		return "updatePromptPage.jsp";
 	}
 
 //UPDATE PROMPT POST
