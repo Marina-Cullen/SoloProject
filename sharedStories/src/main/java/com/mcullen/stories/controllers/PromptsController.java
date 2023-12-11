@@ -93,7 +93,7 @@ public class PromptsController {
 		viewModel.addAttribute("loggedUser", foundUserOrNull);
 		Prompts thisPrompts = promptServ.readOnePrompt(id);
 		model.addAttribute("thisPrompts", thisPrompts);
-		return "allPromptsPage.jsp";
+		return "onePrompt.jsp";
 	}
 
 //UPDATE PROMPT PAGE
