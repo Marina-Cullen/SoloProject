@@ -35,15 +35,14 @@ public class PromptsController {
 	public String newPromptPage(@ModelAttribute("newPrompt") Prompts newPrompt, Model viewModel, Model model) {
 		Long userId = (Long) session.getAttribute("userId"); // Remember to to TYPECAST anything I get from session
 		
-		//DROPDOWN OPTIONS
-		String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };
-		model.addAttribute("allCategories",categories); /* If you pass anything in via the Model, you must pass it in again!!! */
-
-		
 		// If the user is NOT logged in, this will send them to the login page
 		if (userId == null) {
 			return "redirect:/";
 		}
+		//DROPDOWN OPTIONS
+		String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };
+		model.addAttribute("allCategories",categories); /* If you pass anything in via the Model, you must pass it in again!!! */
+
 		User foundUserOrNull = userServ.getUserById(userId);
 		viewModel.addAttribute("loggedUser", foundUserOrNull);
 		return "promptForm.jsp";

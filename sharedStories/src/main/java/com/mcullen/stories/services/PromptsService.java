@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mcullen.stories.models.Prompts;
 import com.mcullen.stories.models.Story;
 import com.mcullen.stories.repositories.PromptsRepository;
+import com.mcullen.stories.repositories.StoryRepository;
 
 @Service
 public class PromptsService {
@@ -16,6 +17,8 @@ public class PromptsService {
 //imports the information from the PromptsRepository file
 	@Autowired
 	private PromptsRepository promptRepo;
+	@Autowired
+	private StoryRepository storyRepo;
 
 	//CREATE
 	public Prompts createprompt(Prompts newPrompt) {

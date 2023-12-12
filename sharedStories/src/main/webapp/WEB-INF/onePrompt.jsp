@@ -49,10 +49,10 @@
 	<c:if test="${loggedUser.id.equals(thisPrompts.postingUser.id) }">
 		<a class="button" href="/prompt/${thisPrompts.id}/update">Update
 			this Listing</a>
-	<!-- DELETE BUTTON -->		
+		<!-- DELETE BUTTON -->
 		<form action="/prompt/${thisPrompts.id}/delete" method="POST">
-			<input type="hidden" name="_method" value="delete" /> 
-			<input type="submit" class="btn btn-link" value="Delete" />
+			<input type="hidden" name="_method" value="delete" /> <input
+				type="submit" class="btn btn-link" value="Delete" />
 		</form>
 	</c:if>
 
@@ -68,6 +68,16 @@
 		<input type="submit" class="btn btn-link" value="Log Out">
 	</form>
 
+
+	<!-- ADD A STORY -->
+
+	<div class="bowser">
+		<form:form action="">
+		
+		
+		</form:form>
+
+	</div>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/app.js"></script>
 	<!-- change to match your file/naming structure -->
