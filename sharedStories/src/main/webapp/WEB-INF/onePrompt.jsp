@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>{thisPrompts.title</title>
+<title>{thisPrompts.title}</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main.css">
 <!-- change to match your file/naming structure -->
@@ -22,7 +22,7 @@
 <body>
 
 
-<!-- This tests to see if the person who posted the prompt.  Different greeting for the Poster vs another member -->
+	<!-- This tests to see if the person who posted the prompt.  Different greeting for the Poster vs another member -->
 
 	<c:choose>
 		<c:when test="${loggedUser.id.equals(thisPrompts.postingUser.id) }">
@@ -44,19 +44,20 @@
 			</h3>
 		</c:otherwise>
 	</c:choose>
-	
-<!-- update and delete will appear to the person who posted the prompt ONLY -->
+
+	<!-- update and delete will appear to the person who posted the prompt ONLY -->
 	<c:if test="${loggedUser.id.equals(thisPrompts.postingUser.id) }">
-			<a class="button" href="/prompt/${thisPrompts.id}/update">Update this
-				Listing</a>
-			<form action="/prompt/${thisPrompts.id}/delete" method="POST">
-				<input type="hidden" name="_method" value="delete" /> <input
-					type="submit" class="btn btn-link" value="Delete" />
-			</form>
-		</c:if>
-		
-	
-<!-- LINKS -->
+		<a class="button" href="/prompt/${thisPrompts.id}/update">Update
+			this Listing</a>
+	<!-- DELETE BUTTON -->		
+		<form action="/prompt/${thisPrompts.id}/delete" method="POST">
+			<input type="hidden" name="_method" value="delete" /> 
+			<input type="submit" class="btn btn-link" value="Delete" />
+		</form>
+	</c:if>
+
+
+	<!-- LINKS -->
 	<br />
 	<a href="/home">Home</a>
 	<br />

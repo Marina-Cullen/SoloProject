@@ -102,15 +102,16 @@ public class PromptsController {
 		Long userId = (Long) session.getAttribute("userId"); // Remember to to TYPECAST anything I get from session
 		// If the user is NOT logged in, this will send them to the login page
 		if (userId == null) {
-			String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };
-			model.addAttribute("allCategories", categories);
+			
 			return "redirect:/";
 
 		}
+		String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };
+		model.addAttribute("allCategories", categories);
 		User foundUserOrNull = userServ.getUserById(userId);
 		viewModel.addAttribute("loggedUser", foundUserOrNull);
 		Prompts thisPrompts = promptServ.readOnePrompt(id);
-		model.addAttribute("editedPrompts", thisPrompts);
+		model.addAttribute("updatedPrompt", thisPrompts);
 
 		return "updatePromptPage.jsp";
 	}
@@ -118,14 +119,17 @@ public class PromptsController {
 //UPDATE PROMPT POST
 	@PutMapping("/prompt/{id}/update")
 	public String updatePromptPost(@PathVariable("id") Long Id,
-			@Valid @ModelAttribute("updatePrompt") Prompts updatedPrompt, BindingResult result, Model model) {
+			@Valid @ModelAttribute("updatedPrompt") Prompts updatedPrompt, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			// Pass in attributes from the model OTHER than the actual object we're editing,
 			// such as the CATEGORIES I offered
+			
 			return "updatePromptForm.jsp";
 		}
+		String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };
+		model.addAttribute("allCategories", categories);
 		promptServ.updatePrompt(updatedPrompt); // Edit prompt in DB via Service and Repository
-		return "redirect:/prompt/" + updatedPrompt.getId(); // back to the Prompts page
+		return "redirect:/prompts"; // back to the Prompts page
 	}
 
 //DELETE
