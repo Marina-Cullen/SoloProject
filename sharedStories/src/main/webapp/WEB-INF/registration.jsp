@@ -20,51 +20,59 @@
 
 </head>
 <body>
-<h1>Let's get you registered and settled in.</h1>
-<div class="bowser" >
+	<h1>Let's get you registered and settled in.</h1>
+	<div class="bowser">
 		<form:form class="text-align:center" action="/register" method="POST"
 			modelAttribute="newUser">
+			<div>
+				<form:label path="userName">User Name:</form:label>
+				<form:errors path="userName" />
+				<form:input path="userName" />
+			</div>
+			<div>
+				<form:label path="firstName">First Name:</form:label>
+				<form:errors path="firstName" />
+				<form:input path="firstName" />
+			</div>
+			<div>
+				<form:label path="lastName">Last Name:</form:label>
+				<form:errors path="lastName" />
+				<form:input path="lastName" />
+			</div>
+			<div>
+				<form:label path="email">Email:</form:label>
+				<form:errors path="email" />
+				<form:input type="email" path="email" />
+			</div>
+			<div>
+				<form:label path="dob">Date Of Birth:</form:label>
+				<form:errors path="dob" />
+				<form:input type="date" path="dob" />
+			</div>
+			<div>
+				<form:label path="quote">Favorite Quote:</form:label>
+				<form:errors path="quote" />
+				<form:textarea path="quote" />
+			</div>
+			<div>
+				<form:label path="password">Password:</form:label>
+				<form:errors path="password" />
+				<form:password path="password" />
+			</div>
 
-			<form:label path="userName">User Name:</form:label>
-			<form:errors path="userName" />
-			<form:input path="userName" />
-			
-			<form:label path="firstName">First Name:</form:label>
-			<form:errors path="firstName" />
-			<form:input path="firstName" />
-			
-			<form:label path="lastName">Last Name:</form:label>
-			<form:errors path="lastName" />
-			<form:input path="lastName" />
-
-			<form:label path="email">Email:</form:label>
-			<form:errors path="email" />
-			<form:input type="email" path="email" />
-			
-			<form:label path="dob">Date Of Birth:</form:label>
-			<form:errors path="dob" />
-			<form:input type="date" path="dob" />
-			
-			<form:label path="quote">Favorite Quote:</form:label>
-			<form:errors path="quote" />
-			<form:textarea path="quote" />
-
-			<form:label path="password">Password:</form:label>
-			<form:errors path="password" />
-			<form:password path="password" />
 			<!-- 			//If using form:input, you must include "type="password" -->
-
-			<form:label path="confirm">Confirm Password:</form:label>
-			<form:errors path="confirm" />
-			<form:password path="confirm" />
-			<!-- 			NOTE: the form:password. or could be form:input type="password" -->
-			<input type="submit" class="button4" value="Register" />
-
-
+			<div>
+				<form:label path="confirm">Confirm Password:</form:label>
+				<form:errors path="confirm" />
+				<form:password path="confirm" />
+			</div>
+			<div>
+				<!-- 			NOTE: the form:password. or could be form:input type="password" -->
+				<input type="submit" class="button4" value="Register" />
 		</form:form>
-</div>
+	</div>
 
-<a href="/">Login</a>
+	<a href="/">Login</a>
 
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/app.js"></script>

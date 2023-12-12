@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.mcullen.stories.models.Prompts;
+
 import com.mcullen.stories.models.User;
 import com.mcullen.stories.services.PromptsService;
+import com.mcullen.stories.services.StoryService;
 import com.mcullen.stories.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -28,20 +30,23 @@ public class PromptsController {
 	@Autowired
 	private UserService userServ;
 	@Autowired
+	private StoryService storyServ;
+	@Autowired
 	private HttpSession session;
 
 //CREATE A PROMPT PAGE
 	@GetMapping("/create/prompt")
 	public String newPromptPage(@ModelAttribute("newPrompt") Prompts newPrompt, Model viewModel, Model model) {
 		Long userId = (Long) session.getAttribute("userId"); // Remember to to TYPECAST anything I get from session
-		
+
 		// If the user is NOT logged in, this will send them to the login page
 		if (userId == null) {
 			return "redirect:/";
 		}
-		//DROPDOWN OPTIONS
+		// DROPDOWN OPTIONS
 		String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };
-		model.addAttribute("allCategories",categories); /* If you pass anything in via the Model, you must pass it in again!!! */
+		model.addAttribute("allCategories",
+				categories); /* If you pass anything in via the Model, you must pass it in again!!! */
 
 		User foundUserOrNull = userServ.getUserById(userId);
 		viewModel.addAttribute("loggedUser", foundUserOrNull);
@@ -53,15 +58,17 @@ public class PromptsController {
 	public String newPromptPost(@Valid @ModelAttribute("newPrompt") Prompts newPrompt, BindingResult result,
 			Model model) {
 		String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };
-		model.addAttribute("allCategories",categories); /* If you pass anything in via the Model, you must pass it in again!!! */
+		model.addAttribute("allCategories",
+				categories); /* If you pass anything in via the Model, you must pass it in again!!! */
 
 		// If the validations are not good...
 		if (result.hasErrors()) {
 			return "promptForm.jsp";
-
+ 
 		}
 		// The validations are good
 		promptServ.createprompt(newPrompt); // Talk to the service
+		
 		return "redirect:/prompts";
 	}
 
@@ -101,7 +108,7 @@ public class PromptsController {
 		Long userId = (Long) session.getAttribute("userId"); // Remember to to TYPECAST anything I get from session
 		// If the user is NOT logged in, this will send them to the login page
 		if (userId == null) {
-			
+
 			return "redirect:/";
 
 		}
@@ -122,7 +129,7 @@ public class PromptsController {
 		if (result.hasErrors()) {
 			// Pass in attributes from the model OTHER than the actual object we're editing,
 			// such as the CATEGORIES I offered
-			
+
 			return "updatePromptForm.jsp";
 		}
 		String[] categories = { "Early Childhood", "Childhood", "Teen Years", "Early Adulthood", "Adulthood" };

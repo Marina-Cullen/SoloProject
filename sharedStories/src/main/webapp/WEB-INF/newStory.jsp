@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- c:out ; c:forEach etc. -->
@@ -38,7 +39,7 @@
 				<h4 style="color: orange">for you to be inspired to answer.</h4>
 				<br />
 				<h3>
-					<em>${thisPrompts.prompt}</em>
+					<em>Add Story</em>
 				</h3>
 			</c:otherwise>
 		</c:choose>
@@ -52,21 +53,40 @@
 				<input type="hidden" name="_method" value="delete" /> <input
 					type="submit" class="btn btn-link" value="Delete" />
 			</form>
-			
 		</c:if>
 
 	</div>
 
+
+
+	<!-- ADD A STORY -->
+
 	<div class="bowser">
-		<!-- LINKS -->
-		<br /> <a href="/home">Home</a> <a
-			href="/prompt/${thisPrompts.id}/story">Add A Story</a> <br /> <a
-			href="/create/prompt">Add A Prompt</a> <br /> <a href="/prompts">View
-			List of Prompts</a>
-		<form action="/logout" method="POST">
-			<input type="submit" class="btn btn-link" value="Log Out">
-		</form>
+		<form:form action="/create/story" method="POST"
+			modelAttribute="newStory">
+			<div>
+				<form:label path="story">Add your story here</form:label>
+				<form:errors path="story" />
+				<form:textarea path="story" />
+			</div>
+			<form:hidden path="postingUser" value="${loggedUser.id}" />
+			<form:hidden path="storyPrompt" value="${prompts.id}" />
+			<input type="submit" value="submit" />
+		</form:form>
 	</div>
+
+
+	<!-- LINKS -->
+	<br />
+	<a href="/home">Home</a>
+	<br />
+	<a href="/create/prompt">Add A Prompt</a>
+	<br />
+	<a href="/prompts">View List of Prompts</a>
+	<form action="/logout" method="POST">
+		<input type="submit" class="btn btn-link" value="Log Out">
+	</form>
+
 	<!-- JS TAGS -->
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/app.js"></script>
